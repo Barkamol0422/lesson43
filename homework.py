@@ -1,0 +1,35 @@
+import tkinter as tk
+
+def calculate():
+    try:
+        v1=float(e1.get())
+        v2=float(e2.get())
+        v3=float(e3.get())
+        result = (v1*v2*v3) / 100
+        lbl_result.config(text=f"Result: {result}")
+    except ValueError:
+        lbl_result.config(text="Please enter valid numbers.")
+root=tk.Tk()
+root.title("Age calculater app")
+root.geometry("400x400")
+frame=tk.Frame(root)
+frame2=tk.Frame(root)
+frame.place(relx=0.5, rely=0.3, anchor="center")
+frame2.place(relx=0.5, rely=0.6, anchor="center")
+l1=tk.Label(frame,text="Principle:")
+l1.grid(row=0, column=0, pady=5)
+e1=tk.Entry(frame)
+e1.grid(row=0, column=1)
+l2=tk.Label(frame,text="Time(in years):")
+l2.grid(row=1, column=0)
+e2=tk.Entry(frame)
+e2.grid(row=1, column=1, pady=5)
+l3=tk.Label(frame,text="Rate of interest(%):")
+l3.grid(row=2, column=0)
+e3=tk.Entry(frame)
+e3.grid(row=2, column=1, pady=5)
+btn = tk.Button(frame2, text="Calculate", bg="Green", command=calculate)
+btn.grid(row=3, column=1, pady=10)
+lbl_result=tk.Label(frame2, text="Result: ")
+lbl_result.grid(row=4, column=1, pady=5)
+root.mainloop()
